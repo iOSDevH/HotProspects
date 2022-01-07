@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D245E9B2787F17B00CB848F /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D245E9A2787F17B00CB848F /* FileManager-DocumentsDirectory.swift */; };
 		8D59F77D2783F8C000E8F187 /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59F77C2783F8C000E8F187 /* ProspectsView.swift */; };
 		8D59F77F2783F8CB00E8F187 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59F77E2783F8CB00E8F187 /* MeView.swift */; };
 		8D59F7812783FB1F00E8F187 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D59F7802783FB1F00E8F187 /* Prospect.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D245E9A2787F17B00CB848F /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		8D59F77C2783F8C000E8F187 /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		8D59F77E2783F8CB00E8F187 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 		8D59F7802783FB1F00E8F187 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				8D59F77C2783F8C000E8F187 /* ProspectsView.swift */,
 				8D59F77E2783F8CB00E8F187 /* MeView.swift */,
 				8DE95D4F27867405001D16B6 /* ImageSaver.swift */,
+				8D245E9A2787F17B00CB848F /* FileManager-DocumentsDirectory.swift */,
 				8D9FA2722782AA9E005ED844 /* Assets.xcassets */,
 				8D9FA2742782AA9E005ED844 /* Preview Content */,
 			);
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D59F77F2783F8CB00E8F187 /* MeView.swift in Sources */,
+				8D245E9B2787F17B00CB848F /* FileManager-DocumentsDirectory.swift in Sources */,
 				8DE95D5027867405001D16B6 /* ImageSaver.swift in Sources */,
 				8D59F7812783FB1F00E8F187 /* Prospect.swift in Sources */,
 				8D59F77D2783F8C000E8F187 /* ProspectsView.swift in Sources */,
