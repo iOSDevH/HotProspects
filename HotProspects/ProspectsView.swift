@@ -14,8 +14,15 @@ struct ProspectsView: View {
         case none, contacted, uncontacted
     }
     
+    enum SortType {
+        case name, creationDate
+    }
+    
     @EnvironmentObject var prospects: Prospects
     @State private var isShowingScanner = false
+    
+    @State private var showSortDialog = false
+    @State private var sortBy: SortType = .name
     
     let filter: FilterType
     
@@ -68,14 +75,37 @@ struct ProspectsView: View {
             }
             .navigationTitle(title)
             .toolbar {
-                Button {
-                    isShowingScanner = true
-                } label: {
-                    Label("Scan", systemImage: "qrcode.viewfinder")
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showSortDialog = true
+                    } label: {
+                        Text("Sort")
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isShowingScanner = true
+                    } label: {
+                        Label("Scan", systemImage: "qrcode.viewfinder")
+                    }
                 }
             }
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
+            }
+            .confirmationDialog("Sort By", isPresented: $showSortDialog) {
+                Button {
+                    sortBy = .name
+                } label: {
+                    Text("By Name")
+                }
+                
+                Button {
+                    sortBy = .creationDate
+                } label: {
+                    Text("By Date")
+                }
             }
         }
     }
@@ -92,14 +122,26 @@ struct ProspectsView: View {
     }
     
     var filteredProspects: [Prospect] {
+        var filteredProspects: [Prospect]
+        
         switch filter {
         case .none:
-            return prospects.people
+            filteredProspects = prospects.people
         case .contacted:
-            return prospects.people.filter { $0.isContacted }
+            filteredProspects = prospects.people.filter { $0.isContacted }
         case .uncontacted:
-            return prospects.people.filter { !$0.isContacted }
+            filteredProspects = prospects.people.filter { !$0.isContacted }
         }
+        
+        let sortedProspects = filteredProspects.sorted {
+            switch sortBy {
+            case .name:
+                return $0.name < $1.name
+            case .creationDate:
+                return $0.creationDate < $1.creationDate
+            }
+        }
+        return sortedProspects
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
