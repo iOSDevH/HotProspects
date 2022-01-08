@@ -29,7 +29,7 @@ struct ProspectsView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(filteredProspects) { prospect in
+                ForEach(sortedProspects) { prospect in
                     HStack {
                         VStack(alignment: .leading) {
                             Text(prospect.name)
@@ -121,7 +121,7 @@ struct ProspectsView: View {
         }
     }
     
-    var filteredProspects: [Prospect] {
+    var sortedProspects: [Prospect] {
         var filteredProspects: [Prospect]
         
         switch filter {
